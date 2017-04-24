@@ -1,6 +1,5 @@
 var borrar=0; //bandera que usare para indicar por medio del json si debo borrar
                 //el contenido del canvas
-
 //Se usar para convertir el canvas en una imagen y luego proceder a descargarla
 var button = document.getElementById('btn-download');
 button.addEventListener('click', function (e) {
@@ -12,7 +11,7 @@ var canvas = document.getElementById("myCanvas");
 var bor=document.getElementById("bor");
 var context = canvas.getContext("2d");
 //manejo el evento para pintar de manera continua sobre el tablero
-canvas.addEventListener("mousedown", defineImage, false);
+canvas.addEventListener("mousemove", defineImage, false);
 
 //Manejo el evento para el borrado de la imagen
 bor.addEventListener("click", defineImage, false);
@@ -25,9 +24,7 @@ function getCurrentPos(evt) {
 }
             
 function defineImage(evt) {
-   canvas.addEventListener("mousemove", defineImage, false);
-    
-    
+   
     var currentPos = getCurrentPos(evt);
     
     for (i = 0; i < document.inputForm.color.length; i++) {
