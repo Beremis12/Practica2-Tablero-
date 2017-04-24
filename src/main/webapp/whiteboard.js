@@ -12,7 +12,8 @@ var canvas = document.getElementById("myCanvas");
 var bor=document.getElementById("bor");
 var context = canvas.getContext("2d");
 //manejo el evento para pintar de manera continua sobre el tablero
-canvas.addEventListener("mousemove", defineImage, false);
+canvas.addEventListener("mousedown", defineImage, false);
+
 //Manejo el evento para el borrado de la imagen
 bor.addEventListener("click", defineImage, false);
 function getCurrentPos(evt) {
@@ -24,6 +25,9 @@ function getCurrentPos(evt) {
 }
             
 function defineImage(evt) {
+   canvas.addEventListener("mousemove", defineImage, false);
+    
+    
     var currentPos = getCurrentPos(evt);
     
     for (i = 0; i < document.inputForm.color.length; i++) {
@@ -40,9 +44,10 @@ function defineImage(evt) {
             break;
         }
     }
-    
+    var tam=document.inputForm.tama.value;
     
     var json = JSON.stringify({
+        "tam":tam,
         "erar":borrar, 
         "shape": shape.value,
         "color": color.value,
@@ -54,6 +59,7 @@ function defineImage(evt) {
     drawImageText(json);
         sendText(json);
 }
+
 
 function drawImageText(image) {
     console.log("drawImageText");
@@ -68,7 +74,7 @@ function drawImageText(image) {
     switch (json.shape) {
     case "circle":
         context.beginPath();
-        context.arc(json.coords.x, json.coords.y, 5, 0, 2 * Math.PI, false);
+        context.arc(json.coords.x, json.coords.y, json.tam, 0, 2 * Math.PI, false);
         context.fill();
         break;
     case "square":
