@@ -1,0 +1,45 @@
+.ocultar{
+    visibility: hidden;
+}
+.fondo{
+    background-color: #000000;
+    
+}
+.fon{
+    background-color: #ffffff;
+}
+.mar{
+    margin-left: 50px;
+    color:#ffffff;
+}
+.marg{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.li:link, .li:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.li:hover, .li:active {
+    background-color: red;
+     text-decoration: none;
+}
+
+.bosti{
+    background-color: #009900;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    display: inline-block;
+}
+.bosti:hover{
+    background-color: #00ff00;
+}
